@@ -3,7 +3,7 @@ import './MovieRow.css';
 import * as MdIcons from 'react-icons/md';
 
 function MovieRow({title,items}){
-  const [scrollX,setScrollX] = useState(-600);
+  const [scrollX,setScrollX] = useState(0);
 
   const handleLeftArrow=()=>{
     let x = scrollX + Math.round(window.innerWidth / 2);
@@ -14,8 +14,12 @@ function MovieRow({title,items}){
   }
   const handleRightArrow=()=>{
     let x = scrollX - Math.round(window.innerWidth / 2);
+    let listW = items.results.length * 150;
+    if((window.innerWidth - listW) > x) {
+      x= (window.innerWidth - listW) - 60;
+    }
 
-    setScrollX(0)
+    setScrollX(x)
   }
   return(
     <div className="movieRow">

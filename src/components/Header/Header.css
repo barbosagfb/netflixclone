@@ -34,3 +34,10 @@ background-color: #141414;
   height:100%;
   border-radius: 5px;
 }
+
+
+@media(max-width:1024px){
+  header{
+    padding:0 30px;
+  }
+}

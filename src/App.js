@@ -4,12 +4,16 @@ import MovieRow from './components/MovieRow/MovieRow';
 import FeaturedMovie from './components/FeaturedMovie/FeaturedMovie';
 import './App.css';
 import Header from './components/Header/Header';
+// import loadImg from './assets/loading.gif';
+// import * as AiIcons from 'react-icons/ai';
+import * as VscIcons from 'react-icons/vsc';
 
 function App() {
   
 const [movieList,setMovieList]= useState([]);
 const [featuredData,setFeaturedData]=useState([]);
 const [blackTop,SetBlackTop]= useState(false);
+// const [loading, setLoading] = useState(false);
 
 useEffect(()=>{
   const scrollListener= () =>{
@@ -63,6 +67,13 @@ useEffect(()=>{
         <li>All image rights reserved to Netflix <span role="img" aria-label='heart'>™</span></li>
         <li>Data from Tmdb.org</li>
       </footer>
+      {movieList.length <= 0 && 
+      <div className="loading">
+        {/* <a><AiIcons.AiOutlineLoading3Quarters/></a> */}
+        <a><VscIcons.VscLoading/></a>
+        {/* <img src={loadImg} alt="carregando"/> */}
+      </div>
+      }
     </div>
   );
 }
